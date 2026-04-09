@@ -1,20 +1,33 @@
-# DevOps NGINX Demo
+# Docker NGINX Demo
 
-## Intro
-
-This project helps you install nginx on linux and then show a demo page
 
 ## Steps
 
-
+## if nginx & docker not installed
 sudo apt-get update
-sudo apt install nginx 
+sudo apt-get install nginx -y
+sudo apt-get install docker.io -y
 
-sudo systemctl start nginx
-sudo systemctl enable nginx
+## create dockerifle
+vim Dockerfile
 
-webpage is kept at /var/www/nginx
+## dockerfile >> docker image
+docker build -t docker-nginx-demo .
+ (Here is "docker-nginx-demo" is dockerimage name ) 
+
+## any error occurred 
+(you have to add user to docker group)
+sudo usermod-aG docker $USER
+newgrp docker 
+(refresh docker group)
+
+## docker image >> container
+docker run -d -p 80:80 docker-nginx-demo
+
+## website can be accessible at
+localhost://80 (if you use docker desktop)
+OR
+ip address paste in browser
 
 
-Happy Learning
-TrainWithShubham
+
