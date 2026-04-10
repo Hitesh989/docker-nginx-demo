@@ -3,9 +3,8 @@
 
 ## Steps
 
-## if nginx & docker not installed
+## if docker not installed
 sudo apt-get update
-sudo apt-get install nginx -y
 sudo apt-get install docker.io -y
 
 ## create dockerifle
